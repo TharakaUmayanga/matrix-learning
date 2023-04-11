@@ -17,4 +17,4 @@ class ErrorFunctions:
         return sigmoid value for given input
         y=1/(1+e^(-x))
         """
-        return 1 / (1 + np.exp(self.input_no))
+        return 1 / (1 + np.exp(-self.input_no))
