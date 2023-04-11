@@ -15,8 +15,8 @@ class TestErrorFunctions(TestCase):
         test4 = ErrorFunctions(-0.458).sigmoid()
         test5 = ErrorFunctions(-0.003).sigmoid()
 
-        self.assertEqual(0.9999546021312976, test1)
-        self.assertEqual(0.5855987207016227, test2)
-        self.assertEqual(0.5000049999999998, test3)
-        self.assertEqual(0.3874603865590849, test4)
-        self.assertEqual(0.49925000056249946, test5)
+        self.assertEqual(0.99995460, test1)
+        self.assertEqual(0.58559872, test2)
+        self.assertEqual(0.50000500, test3)
+        self.assertEqual(0.38746039, test4)
+        self.assertEqual(0.49925000, test5)
