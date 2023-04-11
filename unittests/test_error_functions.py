@@ -8,6 +8,16 @@ from errorfunctions.error_functions import ErrorFunctions
 
 class TestErrorFunctions(TestCase):
 
+    def test_ErrorFunctions(self):
+        type_check_1 = ErrorFunctions(12)
+        self.assertEqual(12.0, type_check_1.input_no)
+
+        type_check_2 = ErrorFunctions(12.0)
+        self.assertEqual(12.0, type_check_2.input_no)
+
+        with self.assertRaises(TypeError):
+            ErrorFunctions("test")
+
     def test_sigmoid(self):
         test1 = ErrorFunctions(10).sigmoid()
         test2 = ErrorFunctions(0.3458).sigmoid()
