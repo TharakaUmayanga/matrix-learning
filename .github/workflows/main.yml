@@ -28,4 +28,4 @@ jobs:
           # default set of ruff rules with GitHub Annotations
           ruff --format=github --target-version=py37 .
       - name: Test with pytest
-        run: pytest unittests/test*.py --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml --cov=formatter --cov=process_service --cov=converter --cov=separator --cov=config_validator --cov-report=xml --cov-report=html --cov-fail-under=90
+        run: pytest unittests/test*.py --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml --cov=errorfunctions --cov-report=xml --cov-report=html --cov-fail-under=90
