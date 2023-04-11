@@ -6,7 +6,8 @@ import numpy as np
 
 class ErrorFunctions:
     """
-    This class contains error functions for neural networks and machine learning algorithms
+    This class contains error functions
+    for neural networks and machine learning algorithms.
     """
 
     def __init__(self, input_no):
