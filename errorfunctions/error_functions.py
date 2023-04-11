@@ -16,7 +16,7 @@ class ErrorFunctions:
                 input_no = float(input_no)
             except ValueError:
                 raise TypeError(
-                    f"Only integers and floats are available.\nType mismatch expected int/float received {type(input_no)}")
+                    f"Only integers and floats are available.\nexpected int/float received {type(input_no)}")
         self.input_no = input_no
 
     def sigmoid(self):
@@ -27,3 +27,6 @@ class ErrorFunctions:
         return np.round(1 / (1 + np.exp(-self.input_no)), 8)
 
 
+
+
+ErrorFunctions("test")
