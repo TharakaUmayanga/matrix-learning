@@ -1,29 +1,29 @@
 """
-unittests for ErrorFunctions class
+unittests for ActivationFunctions class
 """
 from unittest import TestCase
 
-from errorfunctions.error_functions import ErrorFunctions
+from optimizations.activation_functions import ActivationFunctions
 
 
-class TestErrorFunctions(TestCase):
+class TestActivationFunctions(TestCase):
 
-    def test_ErrorFunctions(self):
-        type_check_1 = ErrorFunctions(12)
+    def test_ActivationFunctions(self):
+        type_check_1 = ActivationFunctions(12)
         self.assertEqual(12.0, type_check_1.input_no)
 
-        type_check_2 = ErrorFunctions(12.0)
+        type_check_2 = ActivationFunctions(12.0)
         self.assertEqual(12.0, type_check_2.input_no)
 
         with self.assertRaises(TypeError):
-            ErrorFunctions("test")
+            ActivationFunctions("test")
 
     def test_sigmoid(self):
-        test1 = ErrorFunctions(10).sigmoid()
-        test2 = ErrorFunctions(0.3458).sigmoid()
-        test3 = ErrorFunctions(0.00002).sigmoid()
-        test4 = ErrorFunctions(-0.458).sigmoid()
-        test5 = ErrorFunctions(-0.003).sigmoid()
+        test1 = ActivationFunctions(10).sigmoid()
+        test2 = ActivationFunctions(0.3458).sigmoid()
+        test3 = ActivationFunctions(0.00002).sigmoid()
+        test4 = ActivationFunctions(-0.458).sigmoid()
+        test5 = ActivationFunctions(-0.003).sigmoid()
 
         self.assertEqual(0.99995460, test1)
         self.assertEqual(0.58559872, test2)

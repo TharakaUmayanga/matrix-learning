@@ -1,12 +1,12 @@
 """
-    This module contains ErrorFunctions class.
+    This module contains ActivationFunctions class.
     """
 import numpy as np
 
 
-class ErrorFunctions:
+class ActivationFunctions:
     """
-    This class contains error functions
+    This class contains activation functions
     for neural networks and machine learning algorithms.
     """
 
