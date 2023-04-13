@@ -30,3 +30,15 @@ class TestActivationFunctions(TestCase):
         self.assertEqual(0.50000500, test3)
         self.assertEqual(0.38746039, test4)
         self.assertEqual(0.49925000, test5)
+
+    def test_relu(self):
+
+        test1 = ActivationFunctions(10).relu()
+        test2 = ActivationFunctions(0.3458).relu()
+        test3 = ActivationFunctions(-0.5468).relu()
+        test4 = ActivationFunctions(-5).relu()
+
+        self.assertEqual(10, test1)
+        self.assertEqual(0.3458, test2)
+        self.assertEqual(0.0, test3)
+        self.assertEqual(0.0, test4)
