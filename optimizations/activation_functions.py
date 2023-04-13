@@ -41,7 +41,4 @@ class ActivationFunctions:
         :return: return input * 0.01 if it's negative
         otherwise input no.
         """
-        return self.input_no if self.input_no>0 else self.input_no * 0.01
-
-
-
+        return self.input_no if self.input_no > 0 else self.input_no * 0.01
