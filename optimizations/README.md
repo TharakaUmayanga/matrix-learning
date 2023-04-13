@@ -4,24 +4,25 @@ Activation functions and error functions are important components  in machine le
 
 In machine learning, activation functions are used to introduce non linearity into neural networks, which is necessary for the network to learn complex patterns and relationships in data. An activation function takes the weighted sum of the input data and bias term as input and produces an output value that is fed into the next layer of the neural network.
 
- - [Sigmoid Function](##%20Sigmoid%20Function)
-- Rectified Linear Unit (ReLU)
-- Softmax Function
-- Hyperbolic Tangent Function (tanh)
-- Exponential Linear Units (ELU)
+ - [x] Sigmoid Function
+- [x] Rectified Linear Unit (ReLU)
+- [x] Leaky Relu
+- [ ] Softmax Function
+- [ ] Hyperbolic Tangent Function (tanh)
+- [ ] Exponential Linear Units (ELU)
 
 # Error Functions
 
 In machine learning, an error function (also known as a loss function or cost function) is a measure of how well a model is performing on a given task. The error function is typically defined mathematically and is used to evaluate the difference between the predicted output of the model and the actual output.
 
-- Mean Squared Error (MSE)
-- Mean Absolute Error (MAE)
-- Binary Cross-Entropy Loss
-- Categorical Cross-Entropy Loss
-- Hinge Loss
-- Huber Loss
-- Kullback-Leibler (KL) Divergence
-- Mean Squared Logarithmic Error (MSLE)
+- [ ] Mean Squared Error (MSE)
+- [ ] Mean Absolute Error (MAE)
+- [ ] Binary Cross-Entropy Loss
+- [ ] Categorical Cross-Entropy Loss
+- [ ] Hinge Loss
+- [ ] Huber Loss
+- [ ] Kullback-Leibler (KL) Divergence
+- [ ] Mean Squared Logarithmic Error (MSLE)
 
 
 
