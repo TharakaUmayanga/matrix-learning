@@ -35,4 +35,13 @@ class ActivationFunctions:
         """
         return max(0.0, self.input_no)
 
+    def leaky_relu(self):
+        """
+        f(x)=max(0.01*x , x).
+        :return: return input * 0.01 if it's negative
+        otherwise input no.
+        """
+        return self.input_no if self.input_no>0 else self.input_no * 0.01
+
+
 
