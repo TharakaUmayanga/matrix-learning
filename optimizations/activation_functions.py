@@ -26,3 +26,13 @@ class ActivationFunctions:
         y=1/(1+e^(-x))
         """
         return np.round(1 / (1 + np.exp(-self.input_no)), 8)
+
+    def relu(self):
+        """
+        f(x)=max(0.0, x).
+        :return: return input if it's positive
+        otherwise 0
+        """
+        return max(0.0, self.input_no)
+
+
