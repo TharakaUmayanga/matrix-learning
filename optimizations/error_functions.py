@@ -28,4 +28,9 @@ class ErrorFunctions:
         return np.sum(np.power(self.actual - self.predicted, 2) / len(self.actual))
 
     def mae(self):
-        pass
+        """
+        :return: returns mean absoulute error for input values
+        """
+        return np.sum(np.absolute(self.predicted - self.actual))/len(self.actual)
+
+
