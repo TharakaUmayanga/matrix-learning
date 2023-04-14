@@ -23,8 +23,8 @@ In machine learning, an error function (also known as a loss function or cost fu
 is performing on a given task. The error function is typically defined mathematically and is used to evaluate the
 difference between the predicted output of the model and the actual output.
 
-- [ ] Mean Squared Error (MSE)
-- [ ] Mean Absolute Error (MAE)
+- [x] Mean Squared Error (MSE)
+- [x] Mean Absolute Error (MAE)
 - [ ] Binary Cross-Entropy Loss
 - [ ] Categorical Cross-Entropy Loss
 - [ ] Hinge Loss
