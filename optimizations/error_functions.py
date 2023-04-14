@@ -29,7 +29,7 @@ class ErrorFunctions:
 
     def mae(self):
         """
-        :return: returns mean absoulute error for input values
+        :return: returns mean absolute error for input values
         """
         return np.sum(np.absolute(self.predicted - self.actual))/len(self.actual)
 
