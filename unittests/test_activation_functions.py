@@ -37,15 +37,15 @@ class TestActivationFunctions(TestCase):
         testing.assert_array_almost_equal(np.array([0.49925000]), test5)
 
     def test_relu(self):
-        test1 = ActivationFunctions(10).relu()
-        test2 = ActivationFunctions(0.3458).relu()
-        test3 = ActivationFunctions(-0.5468).relu()
-        test4 = ActivationFunctions(-5).relu()
+        test1 = ActivationFunctions(np.array([10])).relu()
+        test2 = ActivationFunctions(np.array([0.3458])).relu()
+        test3 = ActivationFunctions(np.array([-0.5468])).relu()
+        test4 = ActivationFunctions(np.array([-5])).relu()
 
-        self.assertEqual(10, test1)
-        self.assertEqual(0.3458, test2)
-        self.assertEqual(0.0, test3)
-        self.assertEqual(0.0, test4)
+        testing.assert_equal(np.array([10]), test1)
+        testing.assert_equal(np.array([0.3458]), test2)
+        testing.assert_equal(np.array([0.0]), test3)
+        testing.assert_equal(np.array([0.0]), test4)
 
     def test_leaky_relu(self):
         test1 = ActivationFunctions(10).leaky_relu()
