@@ -60,9 +60,10 @@ class ActivationFunctions:
         return (np.exp(self.input_no) - np.exp(-self.input_no)) / \
                (np.exp(self.input_no) + np.exp(-self.input_no))
 
-    def elu(self):
+    def elu(self, alpha=1):
         """
         :return: returns elu value of input no
         """
 
-        return self.input_no if self.input_no >= 0 else np.exp(self.input_no) - 1
+        return self.input_no if self.input_no >= 0 else \
+            alpha * (np.exp(self.input_no) - 1)

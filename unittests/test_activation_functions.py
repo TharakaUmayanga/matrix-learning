@@ -89,8 +89,10 @@ class TestActivationFunctions(TestCase):
         test2 = ActivationFunctions(np.array([0.3458])).elu()
         test3 = ActivationFunctions(np.array([-0.5468])).elu()
         test4 = ActivationFunctions(np.array([-5])).elu()
+        test5 = ActivationFunctions(np.array([-5])).elu(alpha=0.01)
 
         testing.assert_equal(np.array([10]), test1)
         testing.assert_equal(np.array([0.3458]), test2)
         testing.assert_array_almost_equal(np.array([-0.42120099]), test3)
         testing.assert_array_almost_equal(np.array([-0.99326205]), test4)
+        testing.assert_array_almost_equal(np.array([-0.0099326205]), test5)
