@@ -83,3 +83,14 @@ class TestActivationFunctions(TestCase):
         testing.assert_array_almost_equal(np.array([0.3326455]), test2)
         testing.assert_array_almost_equal(np.array([-0.498118]), test3)
         testing.assert_array_almost_equal(np.array([-0.999909]), test4)
+
+    def test_elu(self):
+        test1 = ActivationFunctions(np.array([10])).elu()
+        test2 = ActivationFunctions(np.array([0.3458])).elu()
+        test3 = ActivationFunctions(np.array([-0.5468])).elu()
+        test4 = ActivationFunctions(np.array([-5])).elu()
+
+        testing.assert_equal(np.array([10]), test1)
+        testing.assert_equal(np.array([0.3458]), test2)
+        testing.assert_array_almost_equal(np.array([-0.42120099]), test3)
+        testing.assert_array_almost_equal(np.array([-0.99326205]), test4)

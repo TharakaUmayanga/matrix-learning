@@ -65,4 +65,4 @@ class ActivationFunctions:
         :return: returns elu value of input no
         """
 
-        return self.input_no if self.input_no >= 0 else np.exp(self.input_no - 1)
+        return self.input_no if self.input_no >= 0 else np.exp(self.input_no)-1
