@@ -29,12 +29,14 @@ class TestActivationFunctions(TestCase):
         test3 = ActivationFunctions(np.array([0.00002])).sigmoid()
         test4 = ActivationFunctions(np.array([-0.458])).sigmoid()
         test5 = ActivationFunctions(np.array([-0.003])).sigmoid()
+        test6 = ActivationFunctions(np.array([-0.003, 10, 0.3458])).sigmoid()
 
         testing.assert_array_almost_equal(np.array([0.99995460]), test1)
         testing.assert_array_almost_equal(np.array([0.58559872]), test2)
         testing.assert_array_almost_equal(np.array([0.50000500]), test3)
         testing.assert_array_almost_equal(np.array([0.38746039]), test4)
         testing.assert_array_almost_equal(np.array([0.49925000]), test5)
+        testing.assert_array_almost_equal(np.array([0.49925000, 0.99995460, 0.58559872]), test6)
 
     def test_relu(self):
         test1 = ActivationFunctions(np.array([10])).relu()
