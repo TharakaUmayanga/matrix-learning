@@ -24,4 +24,8 @@ class ErrorFunctions:
         """
         :return: returns mean squared error for the input value
         """
-        return np.power(self.actual - self.predicted, 2) / len(self.actual)
+
+        return np.sum(np.power(self.actual - self.predicted, 2) / len(self.actual))
+
+    def mae(self):
+        pass
