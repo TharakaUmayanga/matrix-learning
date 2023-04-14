@@ -12,8 +12,7 @@ class ActivationFunctions:
 
     def __init__(self, input_no):
         if type(input_no) != np.ndarray:
-            raise TypeError(
-                f"expected numpy.ndarray received {type(input_no)}")
+            raise TypeError(f"expected numpy.ndarray received {type(input_no)}")
         self.input_no = input_no
 
     def sigmoid(self):
@@ -50,6 +49,13 @@ class ActivationFunctions:
             total += np.exp(no)
 
         for no in self.input_no:
-            total_array.append(np.exp(no)/total)
+            total_array.append(np.exp(no) / total)
 
         return np.array(total_array)
+
+    def tanh(self):
+        """
+        :return: returns tanh value of input no
+        """
+        return (np.exp(self.input_no) - np.exp(-self.input_no)) / (np.exp(self.input_no)
+                                                                   + np.exp(-self.input_no))
