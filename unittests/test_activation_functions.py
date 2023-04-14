@@ -36,7 +36,8 @@ class TestActivationFunctions(TestCase):
         testing.assert_array_almost_equal(np.array([0.50000500]), test3)
         testing.assert_array_almost_equal(np.array([0.38746039]), test4)
         testing.assert_array_almost_equal(np.array([0.49925000]), test5)
-        testing.assert_array_almost_equal(np.array([0.49925000, 0.99995460, 0.58559872]), test6)
+        testing.assert_array_almost_equal(np.array([0.49925000, 0.99995460,
+                                                    0.58559872]), test6)
 
     def test_relu(self):
         test1 = ActivationFunctions(np.array([10])).relu()
@@ -62,10 +63,12 @@ class TestActivationFunctions(TestCase):
 
     def test_softmax(self):
         test1 = ActivationFunctions(np.array([1, 1, 2, 3, 4])).softmax()
-        testing.assert_array_almost_equal(np.array([0.03106277, 0.03106277, 0.08443737, 0.22952458, 0.6239125]), test1)
+        testing.assert_array_almost_equal(np.array([0.03106277, 0.03106277, 0.08443737,
+                                                    0.22952458, 0.6239125]), test1)
         test2 = ActivationFunctions(np.array([10, 0.33, 0.1, 3, 4])).softmax()
         test3 = ActivationFunctions(np.array([1, 1, -0.00002, -3, 0.0001])).softmax()
-        test4 = ActivationFunctions(np.array([1, 1.2547, 0.0002, 3.12554, -4])).softmax()
+        test4 = ActivationFunctions(np.array([1, 1.2547, 0.0002, 3.12554, -4])
+                                    ).softmax()
         testing.assert_equal(sum(test2), 1.0)
         testing.assert_equal(sum(test3), 1.0)
         testing.assert_equal(sum(test4), 1.0)
