@@ -50,12 +50,12 @@ class TestActivationFunctions(TestCase):
         testing.assert_equal(np.array([0.0]), test4)
 
     def test_leaky_relu(self):
-        test1 = ActivationFunctions(10).leaky_relu()
-        test2 = ActivationFunctions(0.3458).leaky_relu()
-        test3 = ActivationFunctions(-0.5468).leaky_relu()
-        test4 = ActivationFunctions(-5).leaky_relu()
+        test1 = ActivationFunctions(np.array([10])).leaky_relu()
+        test2 = ActivationFunctions(np.array([0.3458])).leaky_relu()
+        test3 = ActivationFunctions(np.array([-0.5468])).leaky_relu()
+        test4 = ActivationFunctions(np.array([-5])).leaky_relu()
 
-        self.assertEqual(10, test1)
-        self.assertEqual(0.3458, test2)
-        self.assertEqual(-0.005468, test3)
-        self.assertEqual(-0.05, test4)
+        testing.assert_equal(np.array([10]), test1)
+        testing.assert_equal(np.array([0.3458]), test2)
+        testing.assert_equal(np.array([-0.005468]), test3)
+        testing.assert_equal(np.array([-0.05]), test4)
