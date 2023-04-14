@@ -3,36 +3,40 @@ unittests for ActivationFunctions class
 """
 from unittest import TestCase
 
+import numpy as np
+from numpy import testing
+
 from optimizations.activation_functions import ActivationFunctions
 
 
 class TestActivationFunctions(TestCase):
 
     def test_ActivationFunctions(self):
-        type_check_1 = ActivationFunctions(12)
-        self.assertEqual(12.0, type_check_1.input_no)
+        input_1 = np.array([12])
+        input_2 = np.array([12.0])
+        type_check_1 = ActivationFunctions(input_1)
+        self.assertEqual(input_1, type_check_1.input_no)
 
-        type_check_2 = ActivationFunctions(12.0)
-        self.assertEqual(12.0, type_check_2.input_no)
+        type_check_2 = ActivationFunctions(input_2)
+        self.assertEqual(input_2, type_check_2.input_no)
 
         with self.assertRaises(TypeError):
             ActivationFunctions("test")
 
     def test_sigmoid(self):
-        test1 = ActivationFunctions(10).sigmoid()
-        test2 = ActivationFunctions(0.3458).sigmoid()
-        test3 = ActivationFunctions(0.00002).sigmoid()
-        test4 = ActivationFunctions(-0.458).sigmoid()
-        test5 = ActivationFunctions(-0.003).sigmoid()
+        test1 = ActivationFunctions(np.array([10])).sigmoid()
+        test2 = ActivationFunctions(np.array([0.3458])).sigmoid()
+        test3 = ActivationFunctions(np.array([0.00002])).sigmoid()
+        test4 = ActivationFunctions(np.array([-0.458])).sigmoid()
+        test5 = ActivationFunctions(np.array([-0.003])).sigmoid()
 
-        self.assertEqual(0.99995460, test1)
-        self.assertEqual(0.58559872, test2)
-        self.assertEqual(0.50000500, test3)
-        self.assertEqual(0.38746039, test4)
-        self.assertEqual(0.49925000, test5)
+        testing.assert_array_almost_equal(np.array([0.99995460]), test1)
+        testing.assert_array_almost_equal(np.array([0.58559872]), test2)
+        testing.assert_array_almost_equal(np.array([0.50000500]), test3)
+        testing.assert_array_almost_equal(np.array([0.38746039]), test4)
+        testing.assert_array_almost_equal(np.array([0.49925000]), test5)
 
     def test_relu(self):
-
         test1 = ActivationFunctions(10).relu()
         test2 = ActivationFunctions(0.3458).relu()
         test3 = ActivationFunctions(-0.5468).relu()
@@ -44,7 +48,6 @@ class TestActivationFunctions(TestCase):
         self.assertEqual(0.0, test4)
 
     def test_leaky_relu(self):
-
         test1 = ActivationFunctions(10).leaky_relu()
         test2 = ActivationFunctions(0.3458).leaky_relu()
         test3 = ActivationFunctions(-0.5468).leaky_relu()
@@ -54,4 +57,3 @@ class TestActivationFunctions(TestCase):
         self.assertEqual(0.3458, test2)
         self.assertEqual(-0.005468, test3)
         self.assertEqual(-0.05, test4)
-
