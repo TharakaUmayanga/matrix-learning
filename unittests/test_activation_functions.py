@@ -72,3 +72,14 @@ class TestActivationFunctions(TestCase):
         testing.assert_equal(sum(test2), 1.0)
         testing.assert_equal(sum(test3), 1.0)
         testing.assert_equal(sum(test4), 1.0)
+
+    def test_tanh(self):
+        test1 = ActivationFunctions(np.array([10])).tanh()
+        test2 = ActivationFunctions(np.array([0.3458])).tanh()
+        test3 = ActivationFunctions(np.array([-0.5468])).tanh()
+        test4 = ActivationFunctions(np.array([-5])).tanh()
+
+        testing.assert_array_almost_equal(np.array([1]), test1)
+        testing.assert_array_almost_equal(np.array([0.3326455]), test2)
+        testing.assert_array_almost_equal(np.array([-0.498118]), test3)
+        testing.assert_array_almost_equal(np.array([-0.999909]), test4)
