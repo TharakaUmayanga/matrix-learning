@@ -37,9 +37,10 @@ class ErrorFunctions:
         """
         :return: returns binary cross entropy  value for input values
         """
-        if not (set(self.actual) == {0, 1}):
+        if not (set(self.actual) == {0, 1} or set(self.actual) == {1}
+                or set(self.actual) == {0}):
             raise ValueError("actual values should be 0 or 1")
-        elif np.any(self.predicted > 1 or self.predicted < 0):
+        elif  np.any(self.predicted > 1) or np.any(self.predicted < 0):
             raise ValueError("predicted values should be equal or between 0 and 1")
 
         log_sum = 0
