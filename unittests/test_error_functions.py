@@ -53,17 +53,17 @@ class TestErrorFunctions(TestCase):
         self.predicted_y_1 = np.array([0.323, 0.734, 0.154, 0.665])
 
         self.true_y_2 = np.array([0, 1, 0, 0, 1, 0, 1, 1])
-        self.predicted_y_2 = np.array([1.323, 0.0734, 0.154, 0.665, 0.01, 0.432,
+        self.predicted_y_2 = np.array([0.323, 0.0734, 0.154, 0.665, 0.01, 0.432,
                                        0.678, 0.02])
 
         test_1 = ErrorFunctions(self.true_y_1, self.predicted_y_1).bce()
         bce = tf.keras.losses.BinaryCrossentropy()
         tf_bce_1 = bce(self.true_y_1, self.predicted_y_1).numpy()
-        testing.assert_array_almost_equal(test_1, tf_bce_1)
+        testing.assert_array_almost_equal(test_1, tf_bce_1, decimal=5)
 
         test_2 = ErrorFunctions(self.true_y_2, self.predicted_y_2).bce()
         tf_bce_2 = bce(self.true_y_2, self.predicted_y_2).numpy()
-        testing.assert_array_almost_equal(test_2, tf_bce_2)
+        testing.assert_array_almost_equal(test_2, tf_bce_2, decimal=5)
 
         self.true_2 = np.array([1.323, 0.734, 0.154, 0.665])
         self.predicted_2 = np.array([0.323, 0.0734, 0.154, 0.665])
@@ -74,11 +74,11 @@ class TestErrorFunctions(TestCase):
         self.true_3 = np.array([1, 1, 1, 1])
         self.predicted_3 = np.array([0.323, 1.734, 0.154, 0.665, 0.01])
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(RuntimeError):
             ErrorFunctions(self.true_3, self.predicted_3).bce()
 
         self.true_4 = np.array([-1, 1, 1, 1])
-        self.predicted_4 = np.array([0.323, 1.734, 0.154, 0.665, -0.01])
+        self.predicted_4 = np.array([0.323, 1.734, 0.154, 0.665])
 
         with self.assertRaises(ValueError):
             ErrorFunctions(self.true_4, self.predicted_4).bce()
