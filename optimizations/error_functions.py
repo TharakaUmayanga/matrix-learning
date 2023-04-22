@@ -31,6 +31,14 @@ class ErrorFunctions:
         """
         :return: returns mean absolute error for input values
         """
-        return np.sum(np.absolute(self.predicted - self.actual))/len(self.actual)
+        return np.sum(np.absolute(self.predicted - self.actual)) / len(self.actual)
 
-
+    def bce(self):
+        """
+        :return: returns binary cross entropy  value for input values
+        """
+        log_sum = 0
+        for i in range(0, len(self.predicted)):
+            log_sum += (self.actual[i] * np.log(self.predicted[i])) + \
+                       ((1 - self.actual[i]) * np.log(1 - self.predicted[i]))
+        return -log_sum / len(self.predicted)
