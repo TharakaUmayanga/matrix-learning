@@ -4,6 +4,7 @@ unittests for TestErrorFunctions class
 from unittest import TestCase
 
 import numpy as np
+import tensorflow as tf
 from numpy import testing
 
 from optimizations.error_functions import ErrorFunctions
@@ -46,3 +47,38 @@ class TestErrorFunctions(TestCase):
         testing.assert_array_almost_equal(test1.mae(), np.array([0.22500]))
 
         testing.assert_array_almost_equal(test2.mae(), np.array([3.12465]))
+
+    def test_bce(self):
+        self.true_y_1 = np.array([1, 1, 1, 1])
+        self.predicted_y_1 = np.array([0.323, 0.734, 0.154, 0.665])
+
+        self.true_y_2 = np.array([0, 1, 0, 0, 1, 0, 1, 1])
+        self.predicted_y_2 = np.array([1.323, 0.0734, 0.154, 0.665, 0.01, 0.432,
+                                       0.678, 0.02])
+
+        test_1 = ErrorFunctions(self.true_y_1, self.predicted_y_1).bce()
+        bce = tf.keras.losses.BinaryCrossentropy()
+        tf_bce_1 = bce(self.true_y_1, self.predicted_y_1).numpy()
+        testing.assert_array_almost_equal(test_1, tf_bce_1)
+
+        test_2 = ErrorFunctions(self.true_y_2, self.predicted_y_2).bce()
+        tf_bce_2 = bce(self.true_y_2, self.predicted_y_2).numpy()
+        testing.assert_array_almost_equal(test_2, tf_bce_2)
+
+        self.true_2 = np.array([1.323, 0.734, 0.154, 0.665])
+        self.predicted_2 = np.array([0.323, 0.0734, 0.154, 0.665])
+
+        with self.assertRaises(ValueError):
+            ErrorFunctions(self.true_2, self.predicted_2).bce()
+
+        self.true_3 = np.array([1, 1, 1, 1])
+        self.predicted_3 = np.array([0.323, 1.734, 0.154, 0.665, 0.01])
+
+        with self.assertRaises(ValueError):
+            ErrorFunctions(self.true_3, self.predicted_3).bce()
+
+        self.true_4 = np.array([-1, 1, 1, 1])
+        self.predicted_4 = np.array([0.323, 1.734, 0.154, 0.665, -0.01])
+
+        with self.assertRaises(ValueError):
+            ErrorFunctions(self.true_4, self.predicted_4).bce()
