@@ -67,3 +67,8 @@ class ActivationFunctions:
 
         return self.input_no if self.input_no >= 0 else \
             alpha * (np.exp(self.input_no) - 1)
+
+
+
+
+
